@@ -49,9 +49,9 @@ Escolha a cultura:
 1. cana-de-açúcar
 2. laranja
 Digite o número correspondente à cultura: 1
-Digite o comprimento do terreno (em metros): 50
-Digite a largura do terreno (em metros): 30
-Dados inseridos: cana-de-açúcar, área: 1500.00 m², insumos: 30.00 kg ou L
+Digite o comprimento do terreno (em metros): 100
+Digite a largura do terreno (em metros): 100
+Para a cultura cana-de-açúcar, dentro da área de 10000.00 m², você precisará de 200.00 L (litros) de Inseticida.
 ```
 
 The program will calculate the area and required inputs based on the crop type and display the stored data using option 2.
