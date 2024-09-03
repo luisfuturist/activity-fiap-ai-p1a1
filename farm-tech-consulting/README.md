@@ -62,4 +62,4 @@ The program can be extended to support more crops or different types of input ca
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](../LICENSE).
