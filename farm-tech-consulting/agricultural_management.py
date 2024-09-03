@@ -133,13 +133,13 @@ def main() -> None:
         if option == "1":
             crop = choose_crop()
             area = calculate_crop_area(crop)
-            input_quantity = calculate_inputs(area, crop)
+            input_quantity, input_type = calculate_inputs(area, crop)
             
             crops.append(crop)
             areas.append(area)
             inputs.append(input_quantity)
-            print(f"Dados inseridos: {crop}, área: {area:.2f} m², insumos: {input_quantity:.2f} kg ou L")
-        
+            print(f"Para a cultura {crop}, dentro da área de {area:.2f} m², você precisará de {input_quantity:.2f} L (litros) de {input_type}.")
+
         elif option == "2":
             display_data(crops, areas, inputs)
         
