@@ -1,16 +1,18 @@
 # Install packages if not already installed
-if (!require("httr")) {
-  install.packages("httr")
-}
-if (!require("jsonlite")) {
-  install.packages("jsonlite")
-}
-if (!require("dotenv")) {
-  install.packages("dotenv")
-}
-if (!require("crayon")) {
-  install.packages("crayon")
-}
+suppressMessages(suppressWarnings({
+  if (!require("httr")) {
+    install.packages("httr")
+  }
+  if (!require("jsonlite")) {
+    install.packages("jsonlite")
+  }
+  if (!require("dotenv")) {
+    install.packages("dotenv")
+  }
+  if (!require("crayon")) {
+    install.packages("crayon")
+  }
+}))
 
 # Load the required packages
 library(httr)
@@ -38,23 +40,23 @@ if (!nzchar(api_key)) {
 get_weather <- function(city, state = NULL, country = NULL) {
   # Construct the query parameters
   location <- paste(city, state, country, sep = ",")
-  
+
   url <- paste0("http://api.openweathermap.org/data/2.5/weather?q=", location, "&appid=", api_key, "&units=metric&lang=pt_br")
-  
+
   response <- GET(url)
 
   if (response$status_code == 404) {
     cat(red("\nErro: localização não encontrada\n"))
     return(NULL)
   }
-  
+
   if (response$status_code != 200) {
     cat(red("Erro:\n"))
     cat(red(content(response, "text"), "\n"))
     cat(red("Tente novamente.\n"))
     return(NULL)
   }
-  
+
   # Parse the response as JSON
   data <- fromJSON(content(response, "text"))
 
@@ -66,7 +68,7 @@ get_weather <- function(city, state = NULL, country = NULL) {
     wind_speed = data$wind$speed,
     humidity = data$main$humidity
   )
-  
+
   return(weather_info)
 }
 
@@ -74,7 +76,7 @@ prompt_city <- function() {
   city <- input("Cidade: ")
 
   # Check if the city is empty, ignore leading and trailing whitespaces
-  if(trimws(city) == "") {
+  if (trimws(city) == "") {
     cat(red("Erro: cidade deve ser preenchida.\n"))
     return(prompt_city())
   }
@@ -85,7 +87,7 @@ prompt_city <- function() {
 display_weather <- function(city, state, country) {
   cat(silver("Buscando informações meteorológicas...\n"))
   weather <- get_weather(city, state, country)
-  
+
   if (is.null(weather)) {
     main()
     return()
