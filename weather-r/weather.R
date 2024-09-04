@@ -95,7 +95,6 @@ display_weather <- function(city, state, country) {
 
   cat("\n--------------------------------\n")
   cat(paste0("Cidade: ", blue(weather$city_name), "\n"))
-  cat(paste0("Temperatura: ", blue(weather$humidity), blue(" °C\n")))
   cat(paste0("Temperatura: ", blue(weather$temperature), "\n"))
   cat(paste0("Condição: ", blue(weather$description), "\n"))
   cat(paste0("Umidade: ", blue(weather$humidity), blue("%\n")))
