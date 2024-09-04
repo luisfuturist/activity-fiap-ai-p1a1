@@ -39,7 +39,7 @@ if (!nzchar(api_key)) {
 
 get_weather <- function(city, state = NULL, country = NULL) {
   # Construct the query parameters
-  location <- paste(city, state, country, sep = ",")
+  location <- URLencode(paste(city, state, country, sep = ","))
 
   url <- paste0("http://api.openweathermap.org/data/2.5/weather?q=", location, "&appid=", api_key, "&units=metric&lang=pt_br")
 
