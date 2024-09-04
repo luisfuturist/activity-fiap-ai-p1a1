@@ -27,9 +27,3 @@ options(repos = c(CRAN = "https://cran.rstudio.com/"))
 ```bash
 cd scripts
 ```
-
-Install packages:
-
-```bash
-Rscript install_packages.R
-```
