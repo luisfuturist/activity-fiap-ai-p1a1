@@ -47,6 +47,7 @@ get_weather <- function(city, state = NULL, country = NULL) {
 
   if (response$status_code == 404) {
     cat(red("\nErro: localização não encontrada\n"))
+    prompt_location()
     return(NULL)
   }
 
@@ -131,7 +132,7 @@ prompt_location <- function() {
 
 # Display the welcome message
 cat(blue("# Weather App\n\n"))
-cat(silver("Obtenha informações meteorológicas de qualquer cidade do mundo.\n\n"))
+cat(silver("Obtenha dados meteorológicas de qualquer cidade do mundo.\n\n"))
 
 main <- function() {
   cat(bold("1."), "Iniciar\n")
