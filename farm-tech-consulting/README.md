@@ -37,7 +37,7 @@ This Python program is designed to assist in managing agricultural data for diff
 - **2. Saída de dados:** View all stored data entries, each with an index, crop type, area, and input quantities.
 - **3. Atualizar dados:** Update an existing data entry by selecting its index from the displayed list, then re-enter the new data.
 - **4. Deletar dados:** Delete an existing data entry by selecting its index from the displayed list.
-- **5. Sair do programa:** Exit the program.
+- **5. Sair do programa:** Exit the programo
 
 ### Example Usage
 
@@ -49,12 +49,17 @@ Escolha a cultura:
 1. cana-de-açúcar
 2. laranja
 Digite o número correspondente à cultura: 1
-Digite o comprimento do terreno (em metros): 50
-Digite a largura do terreno (em metros): 30
-Dados inseridos: cana-de-açúcar, área: 1500.00 m², insumos: 30.00 kg ou L
+Digite o comprimento do terreno (em metros): 100
+Digite a largura do terreno (em metros): 100
+Para a cultura cana-de-açúcar, dentro da área de 10000.00 m², você precisará de 200.00 L (litros) de Inseticida.
 ```
 
 The program will calculate the area and required inputs based on the crop type and display the stored data using option 2.
+
+## Diagrams
+To check the Diagrams, please check [diagrams directory]:(./diagrams)
+
+We used diagram as code, please visit [structurizr](structurizr.com/dsl) to render it.
 
 ## Customization
 
@@ -62,4 +67,4 @@ The program can be extended to support more crops or different types of input ca
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](../LICENSE).

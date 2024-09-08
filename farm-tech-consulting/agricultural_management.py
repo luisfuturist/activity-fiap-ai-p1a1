@@ -79,17 +79,21 @@ def calculate_inputs(area: float, crop: str) -> float:
 
     Returns:
         float: The calculated input quantity in kilograms or liters.
+        str: The type of input (herbicide or insecticide).
     """
+
     if crop == "cana-de-açúcar":
-        input_per_square_meter = 200 / 10000  # 200 kg/ha, converting to kg/m²
+        input_per_square_meter = 0.02 # 20 mL/m²
         input_quantity = area * input_per_square_meter
+        input_type = "Inseticida"
     elif crop == "laranja":
-        input_per_square_meter = 0.5  # 500 mL/m²
+        input_per_square_meter = 0.03 # 30 mL/m²
         input_quantity = area * input_per_square_meter
+        input_type = "Herbicida"
     else:
         print("Cultura não suportada.")
         input_quantity = 0
-    return input_quantity
+    return input_quantity, input_type
 
 def display_data(crops: list[str], areas: list[float], inputs: list[float]) -> None:
     """
@@ -129,13 +133,13 @@ def main() -> None:
         if option == "1":
             crop = choose_crop()
             area = calculate_crop_area(crop)
-            input_quantity = calculate_inputs(area, crop)
+            input_quantity, input_type = calculate_inputs(area, crop)
             
             crops.append(crop)
             areas.append(area)
             inputs.append(input_quantity)
-            print(f"Dados inseridos: {crop}, área: {area:.2f} m², insumos: {input_quantity:.2f} kg ou L")
-        
+            print(f"Para a cultura {crop}, dentro da área de {area:.2f} m², você precisará de {input_quantity:.2f} L (litros) de {input_type}.")
+
         elif option == "2":
             display_data(crops, areas, inputs)
         
