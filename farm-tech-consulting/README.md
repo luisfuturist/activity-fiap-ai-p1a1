@@ -57,9 +57,9 @@ Para a cultura cana-de-açúcar, dentro da área de 10000.00 m², você precisar
 The program will calculate the area and required inputs based on the crop type and display the stored data using option 2.
 
 ## Diagrams
-To check the Diagrams, please check [diagrams directory]:(./diagrams)
+To check the Diagrams, please check [diagrams directory](./diagrams).
 
-We used diagram as code, please visit [structurizr](structurizr.com/dsl) to render it.
+We used diagram as code, please visit [structurizr](https://www.structurizr.com/dsl) to render it.
 
 ## Customization
 

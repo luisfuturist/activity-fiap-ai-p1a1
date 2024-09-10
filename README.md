@@ -1,5 +1,4 @@
-# activity-farmtech
-
+# Activity FarmTech
 
 ## Introdução
 
@@ -7,59 +6,24 @@ Este projeto foi desenvolvido pela FarmTech Solutions para implementar soluçõe
 
 ## Estrutura do Projeto
 
-- **diagrams/**: Contém diagramas de contexto, contêiner e componentes.
-    - `component-context.dsl`
-    - `container-context.dsl`
-    - `system-context.dsl`
-- **farm-tech-consulting/**: Diretório principal do código Python.
-    - `agricultural_management.py`: Script principal da aplicação.
-- **weather-r/**: Diretório para scripts em R.
-    - `install_packages.R`: Script para instalação de pacotes necessários.
-    - `weather.R`: Script para conexão com API meteorológica.
-- **.gitignore**: Arquivo para ignorar arquivos desnecessários no controle de versão.
+- **[farm-tech-consulting](./farm-tech-consulting/README.md):** Diretório principal do código Python.
+- **[weather-r](./weather-r/README.md):** Diretório para scripts em R.
+- **[stats-r](./stats-r/README.md):** Subproject that demonstrates how to integrate Python and R for data generation and statistical analysis.
 
 ## Pré-requisitos
 
 - **Software**:
-    - Visual Code ou Google Colab
+    - Visual Code, RStudio ou Google Colab
     - Python 3.8 ou superior
-    - R
-- **Bibliotecas Python**: Nenhuma biblioteca externa necessária.
-- **Bibliotecas R**: `httr`, `jsonlite`, `dotenv`
-- **Hardware**: Computador com acesso à internet para conexão com API.
+    - R 4.4.1 ou superior
 
 ## Configuração
 
-1. **Clone o repositório**:
+ **Clone o repositório**:
     
-    ```bash
-    git clone [repository_url]
-    ```
-    
-2. **Instale as bibliotecas R**: Execute `install_packages.R` no Visual Code para instalar as bibliotecas necessárias.
-3. **Configure a API**:
-    - Crie um arquivo `.env` na pasta `weather-r` com a variável `OPEN_WEATHER_API_KEY`.
-
-## Uso
-
-### Python
-
-- Execute o script principal:
-    
-    ```bash
-    python farm-tech-consulting/agricultural_management.py
-    ```
-    
-- Siga as instruções no menu para gerenciar dados agrícolas.
-
-### R
-
-- Execute `weather.R` no Visual Code para obter dados climáticos.
-
-## Testes
-
-- **Python**: Teste manual através do menu interativo.
-- **R**: Verifique a saída no console para confirmar a obtenção de dados climáticos.
+```bash
+git clone https://github.com/luisfuturist/activity-farmtech.git
+```
 
 ## Guia de Contribuição
 
@@ -71,8 +35,13 @@ Este projeto foi desenvolvido pela FarmTech Solutions para implementar soluçõe
 
 Para dúvidas ou suporte, entre em contato com os membros do grupo:
 
-- Lucas Ferreira Hillesheim: [lucas.ferreira.hillesheim@gmail.com](mailto:lucas.ferreira.hillesheim@gmail.com)
-- Luís Fillipe Emidio: [luisfuturist@gmail.com](mailto:luisfuturist@gmail.com)
-- Ederson Luiz Badeca dos Santos: [edersonbadeca@gmail.com](mailto:edersonbadeca@gmail.com)
-- Caio Rodrigues Castro: [caiorcastro@gmail.com](mailto:caiorcastro@gmail.com)
-- Felipe Soares Nascimento: [consultor.casteliano@gmail.com](mailto:consultor.casteliano@gmail.com)
+| Nome                          | RM       | Email                                                      |
+| ------------------------------| -------- | ---------------------------------------------------------- |
+| Caio Rodrigues Castro          | 559766   | [caiorcastro@gmail.com](mailto:caiorcastro@gmail.com)      |
+| Ederson Luiz Badeca dos Santos | 560204   | [edersonbadeca@gmail.com](mailto:edersonbadeca@gmail.com)  |
+| Felipe Soares Nascimento       | 560151   | [consultor.casteliano@gmail.com](mailto:consultor.casteliano@gmail.com) |
+| Lucas Ferreira Hillesheim      | 559319   | [lucas.ferreira.hillesheim@gmail.com](mailto:lucas.ferreira.hillesheim@gmail.com) |
+| Luís Fillipe Emidio            | 559976   | [luisfuturist@gmail.com](mailto:luisfuturist@gmail.com)    |
+
+
+
