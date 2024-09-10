@@ -7,15 +7,14 @@ Este projeto foi desenvolvido pela FarmTech Solutions para implementar soluçõe
 
 ## Estrutura do Projeto
 
-- **diagrams/**: Contém diagramas de contexto, contêiner e componentes.
+- **[diagrams](./diagrams)**: Contém diagramas de contexto, contêiner e componentes.
     - `component-context.dsl`
     - `container-context.dsl`
     - `system-context.dsl`
-- **farm-tech-consulting/**: Diretório principal do código Python.
+- **[farm-tech-consulting](./farm-tech-consulting)**: Diretório principal do código Python.
     - `agricultural_management.py`: Script principal da aplicação.
-- **weather-r/**: Diretório para scripts em R.
+- **[weather-r](./weather-r)**: Diretório para scripts em R.
     - `weather.R`: Script para conexão com API meteorológica.
-- **.gitignore**: Arquivo para ignorar arquivos desnecessários no controle de versão.
 
 ## Pré-requisitos
 
