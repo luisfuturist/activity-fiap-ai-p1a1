@@ -1,5 +1,4 @@
-# activity-farmtech
-
+# Activity FarmTech
 
 ## Introdução
 
@@ -7,19 +6,16 @@ Este projeto foi desenvolvido pela FarmTech Solutions para implementar soluçõe
 
 ## Estrutura do Projeto
 
-
-- **[farm-tech-consulting](./farm-tech-consulting/README.md)**: Diretório principal do código Python.
-    - `agricultural_management.py`: Script principal da aplicação.
-- **[weather-r](./weather-r/README.md)**: Diretório para scripts em R.
-    - `weather.R`: Script para conexão com API meteorológica.
-- **[stats-r](./stats-r/README.md)**: Is a subproject that demonstrates how to integrate Python and R for data generation and statistical analysis. It generates a CSV file containing random numbers using Python, and then uses R to perform statistical calculations such as the mean and standard deviation.
+- **[farm-tech-consulting](./farm-tech-consulting/README.md):** Diretório principal do código Python.
+- **[weather-r](./weather-r/README.md):** Diretório para scripts em R.
+- **[stats-r](./stats-r/README.md):** Subproject that demonstrates how to integrate Python and R for data generation and statistical analysis.
 
 ## Pré-requisitos
 
 - **Software**:
     - Visual Code, RStudio ou Google Colab
     - Python 3.8 ou superior
-    - R
+    - R 4.4.1 ou superior
 
 ## Configuração
 
