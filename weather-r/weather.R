@@ -1,50 +1,155 @@
+# Install packages if not already installed
+suppressMessages(suppressWarnings({
+  if (!require("httr")) {
+    install.packages("httr")
+  }
+  if (!require("jsonlite")) {
+    install.packages("jsonlite")
+  }
+  if (!require("dotenv")) {
+    install.packages("dotenv")
+  }
+  if (!require("crayon")) {
+    install.packages("crayon")
+  }
+}))
+
 # Load the required packages
 library(httr)
 library(jsonlite)
-library(dotenv)
+library(crayon)
+suppressWarnings(library(dotenv))
+
+# Define a function to get user input
+input <- function(...) {
+  cat(...)
+  readLines("stdin", n = 1)
+}
 
 # Load environment variables from the .env file
-dotenv::load_dot_env(".env")
+suppressWarnings(dotenv::load_dot_env(".env"))
 
 # Access the API key
 api_key <- Sys.getenv("OPEN_WEATHER_API_KEY")
 
 # Check if the API key was loaded correctly
 if (!nzchar(api_key)) {
-  stop("OPEN_WEATHER_API_KEY not set.\n")
+  stop(red("OPEN_WEATHER_API_KEY não foi definida no arquivo .env\n"))
 }
 
-# Define the city and country for which you want to get weather data
-city <- "Itajaí"
-country <- "BR"
+get_weather <- function(city, state = NULL, country = NULL) {
+  # Construct the query parameters
+  location <- URLencode(paste(city, state, country, sep = ","))
 
-# Create the URL for the API request
-url <- paste0(
-  "http://api.openweathermap.org/data/2.5/weather?q=",
-  city, ",", country, "&appid=", api_key, "&units=metric&lang=pt_br"
-)
+  url <- paste0("http://api.openweathermap.org/data/2.5/weather?q=", location, "&appid=", api_key, "&units=metric&lang=pt_br")
 
-# Make the request to the API
-response <- GET(url)
+  response <- GET(url)
 
-# Check if the request was successful
-if (status_code(response) == 200) {
-  # Parse the response content to JSON
-  data <- fromJSON(content(response, "text", encoding = "UTF-8"))
+  if (response$status_code == 404) {
+    cat(red("\nErro: localização não encontrada\n"))
+    prompt_location()
+    return(NULL)
+  }
+
+  if (response$status_code != 200) {
+    cat(red("Erro:\n"))
+    cat(red(content(response, "text"), "\n"))
+    cat(red("Tente novamente.\n"))
+    return(NULL)
+  }
+
+  # Parse the response as JSON
+  data <- fromJSON(content(response, "text"))
 
   # Extract and format the desired data
-  temperature <- data$main$temp
-  description <- data$weather[[3]]
-  humidity <- data$main$humidity
-  wind_speed <- data$wind$speed
-  city_name <- data$name
+  weather_info <- list(
+    city_name = data$name,
+    temperature = data$main$temp,
+    description = data$weather[[3]],
+    wind_speed = data$wind$speed,
+    humidity = data$main$humidity
+  )
 
-  # Display the data in the terminal
-  cat("Clima em", city_name, ":\n")
-  cat("Temperatura:", temperature, "°C\n")
-  cat("Condição:", description, "\n")
-  cat("Umidade:", humidity, "%\n")
-  cat("Velocidade do Vento:", wind_speed, "m/s\n")
-} else {
-  cat("Falha ao obter dados meteorológicos. Status code:", status_code(response), "\n")
+  return(weather_info)
+}
+
+prompt_city <- function() {
+  city <- input("Cidade: ")
+
+  # Check if the city is empty, ignore leading and trailing whitespaces
+  if (trimws(city) == "") {
+    cat(red("Erro: cidade deve ser preenchida.\n"))
+    return(prompt_city())
+  }
+
+  return(city)
+}
+
+display_weather <- function(city, state, country) {
+  cat(silver("Buscando informações meteorológicas...\n"))
+  weather <- get_weather(city, state, country)
+
+  if (is.null(weather)) {
+    main()
+    return()
+  }
+
+  cat("\n--------------------------------\n")
+  cat(paste0("Cidade: ", blue(weather$city_name), "\n"))
+  cat(paste0("Temperatura: ", blue(weather$temperature), blue(" °C\n")))
+  cat(paste0("Condição: ", blue(weather$description), "\n"))
+  cat(paste0("Umidade: ", blue(weather$humidity), blue("%\n")))
+  cat(paste0("Velocidade do vento: ", blue(weather$wind_speed), blue(" m/s\n")))
+  cat("--------------------------------\n\n")
+
+  cat(bold("1."), "Atualizar dados\n")
+  cat(bold("2."), "Pesquisar outra localização\n")
+  cat(bold("3."), "Sair\n\n")
+
+  choice <- input("Escolha uma opção: ")
+
+  if (choice == "1") {
+    display_weather(city, state, country)
+  } else if (choice == "2") {
+    prompt_location()
+  } else if (choice == "3") {
+    cat(silver("Saindo...\n"))
+    q("no")
+  } else {
+    cat(red("Erro: Opção inválida. Tente novamente.\n"))
+  }
+}
+
+prompt_location <- function() {
+  cat("\n")
+
+  city <- prompt_city()
+  state <- input("Estado:", silver("(opcional) "))
+  country <- input("País:", silver("(opcional) "))
+
+  display_weather(city, state, country)
+}
+
+# Display the welcome message
+cat(blue("# Weather App\n\n"))
+cat(silver("Obtenha dados meteorológicas de qualquer cidade do mundo.\n\n"))
+
+main <- function() {
+  cat(bold("1."), "Iniciar\n")
+  cat(bold("2."), "Sair\n\n")
+
+  choice <- input("Escolha uma opção: ")
+
+  if (choice == "1") {
+    prompt_location()
+  } else if (choice == "2") {
+    cat(silver("Saindo...\n"))
+    q("no")
+  } else {
+    cat(red("Erro: Opção inválida. Tente novamente.\n"))
+  }
+}
+
+while (TRUE) {
+  main()
 }
