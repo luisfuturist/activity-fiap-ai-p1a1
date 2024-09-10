@@ -14,52 +14,23 @@ Este projeto foi desenvolvido pela FarmTech Solutions para implementar soluçõe
 - **farm-tech-consulting/**: Diretório principal do código Python.
     - `agricultural_management.py`: Script principal da aplicação.
 - **weather-r/**: Diretório para scripts em R.
-    - `install_packages.R`: Script para instalação de pacotes necessários.
     - `weather.R`: Script para conexão com API meteorológica.
 - **.gitignore**: Arquivo para ignorar arquivos desnecessários no controle de versão.
 
 ## Pré-requisitos
 
 - **Software**:
-    - Visual Code ou Google Colab
+    - Visual Code, RStudio ou Google Colab
     - Python 3.8 ou superior
     - R
-- **Bibliotecas Python**: Nenhuma biblioteca externa necessária.
-- **Bibliotecas R**: `httr`, `jsonlite`, `dotenv`
-- **Hardware**: Computador com acesso à internet para conexão com API.
 
 ## Configuração
 
-1. **Clone o repositório**:
+ **Clone o repositório**:
     
     ```bash
-    git clone [repository_url]
+    git clone [[repository_url](https://github.com/luisfuturist/activity-farmtech.git)]
     ```
-    
-2. **Instale as bibliotecas R**: Execute `install_packages.R` no Visual Code para instalar as bibliotecas necessárias.
-3. **Configure a API**:
-    - Crie um arquivo `.env` na pasta `weather-r` com a variável `OPEN_WEATHER_API_KEY`.
-
-## Uso
-
-### Python
-
-- Execute o script principal:
-    
-    ```bash
-    python farm-tech-consulting/agricultural_management.py
-    ```
-    
-- Siga as instruções no menu para gerenciar dados agrícolas.
-
-### R
-
-- Execute `weather.R` no Visual Code para obter dados climáticos.
-
-## Testes
-
-- **Python**: Teste manual através do menu interativo.
-- **R**: Verifique a saída no console para confirmar a obtenção de dados climáticos.
 
 ## Guia de Contribuição
 
