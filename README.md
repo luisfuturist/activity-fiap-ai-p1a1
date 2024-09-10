@@ -42,4 +42,3 @@ For questions or support, contact the group members:
 | Felipe Soares Nascimento       | 560151   | [consultor.casteliano@gmail.com](mailto:consultor.casteliano@gmail.com) |
 | Lucas Ferreira Hillesheim      | 559319   | [lucas.ferreira.hillesheim@gmail.com](mailto:lucas.ferreira.hillesheim@gmail.com) |
 | Luís Fillipe Emidio            | 559976   | [luisfuturist@gmail.com](mailto:luisfuturist@gmail.com)    |
-```
