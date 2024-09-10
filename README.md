@@ -7,7 +7,7 @@ This project was developed by FarmTech Solutions to implement Digital Agricultur
 ## Project Structure
 
 - **[farm-tech-consulting](./farm-tech-consulting/README.md):** Main directory of the Python code.
-- **[weather-r](./weather-r/README.md):** Directory for R scripts.
+- **[weather-r](./weather-r/README.md):** Simple command-line tool written in R that allows users to fetch and display current weather information for any city in the world.
 - **[stats-r](./stats-r/README.md):** Subproject that demonstrates how to integrate Python and R for data generation and statistical analysis.
 
 ## Prerequisites
