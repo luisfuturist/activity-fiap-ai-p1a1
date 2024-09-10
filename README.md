@@ -21,9 +21,9 @@ Este projeto foi desenvolvido pela FarmTech Solutions para implementar soluçõe
 
  **Clone o repositório**:
     
-    ```bash
-    git clone https://github.com/luisfuturist/activity-farmtech.git
-    ```
+```bash
+git clone https://github.com/luisfuturist/activity-farmtech.git
+```
 
 ## Guia de Contribuição
 
