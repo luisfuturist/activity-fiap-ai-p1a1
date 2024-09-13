@@ -4,6 +4,10 @@
 
 This project was developed by FarmTech Solutions to implement Digital Agriculture solutions on a farm. The goal is to increase productivity through efficient management of agricultural data, including calculations of planting area and input management.
 
+## Demo Video
+
+You can check the video at: [Youtube Video Demo](https://www.youtube.com)
+
 ## Project Structure
 
 - **[farm-tech-consulting](./farm-tech-consulting/README.md):** Main directory of the Python code.
