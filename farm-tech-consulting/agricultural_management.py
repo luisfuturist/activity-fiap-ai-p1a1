@@ -105,7 +105,9 @@ def display_data(crops: list[str], areas: list[float], inputs: list[float]) -> N
         inputs (list[float]): List of corresponding input quantities.
     """
     for i in range(len(crops)):
-        print(f"Indice[{i}] - Cultura: {crops[i]}, Área: {areas[i]:.2f} m², Insumos: {inputs[i]:.2f} kg ou L")
+        input_quantity, input_type = inputs[i]
+        
+        print(f"Indice[{i}] - Cultura: {crops[i]}, Área: {areas[i]:.2f} m², Insumos: {input_quantity:.2f} L (litros) de {input_type}")
 
 def display_menu() -> None:
     """
@@ -133,11 +135,12 @@ def main() -> None:
         if option == "1":
             crop = choose_crop()
             area = calculate_crop_area(crop)
-            input_quantity, input_type = calculate_inputs(area, crop)
+            input_data = calculate_inputs(area, crop)
+            input_quantity, input_type = input_data
             
             crops.append(crop)
             areas.append(area)
-            inputs.append(input_quantity)
+            inputs.append(input_data)
             print(f"Para a cultura {crop}, dentro da área de {area:.2f} m², você precisará de {input_quantity:.2f} L (litros) de {input_type}.")
 
         elif option == "2":
@@ -156,11 +159,11 @@ def main() -> None:
             if 0 <= index < len(crops):
                 new_crop = choose_crop()
                 new_area = calculate_crop_area(new_crop)
-                new_input = calculate_inputs(new_area, new_crop)
+                input_data = calculate_inputs(new_area, new_crop)
                 
                 crops[index] = new_crop
                 areas[index] = new_area
-                inputs[index] = new_input
+                inputs[index] = input_data
                 print("Dados atualizados com sucesso!")
             else:
                 print("Índice inválido.")
