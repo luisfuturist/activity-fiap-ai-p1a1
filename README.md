@@ -6,7 +6,7 @@ This project was developed by FarmTech Solutions to implement Digital Agricultur
 
 ## Demo Video
 
-You can check the video at: [Youtube Video Demo](https://www.youtube.com)
+You can check the video at: [Youtube Video Demo](https://www.youtube.com/watch?v=1MNoZeZDLgQ)
 
 ## Project Structure
 
